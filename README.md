@@ -1,2 +1,2 @@
-# geetopod-client-php
-geetoPod - PHP Client
+# geetoPod - PHP Client
+
