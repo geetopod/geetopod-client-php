@@ -687,6 +687,55 @@ class Services {
         $this->callApi('/api/ssotoken/validate', $request, $response);
         return $response;
     }
+
+
+    public function getSmsProvider($request) {
+        $response = new GetSmsProviderResponse();
+        $this->callApi('/api/sms/provider', $request, $response);
+        return $response;
+    }
+
+    public function getSystemSmsProvider($request) {
+        $response = new GetSystemSmsProviderResponse();
+        $this->callApi('/api/sms/provider/system', $request, $response);
+        return $response;
+    }
+
+    public function updateSmsProvider($request) {
+        $response = new UpdateSmsProviderResponse();
+        $this->callApi('/api/sms/provider/update', $request, $response);
+        return $response;
+    }
+
+    public function updateSystemSmsProvider($request) {
+        $response = new UpdateSystemSmsProviderResponse();
+        $this->callApi('/api/sms/provider/system/update', $request, $response);
+        return $response;
+    }
+
+    public function getSmtpProvider($request) {
+        $response = new GetSmtpProviderResponse();
+        $this->callApi('/api/smtp/provider', $request, $response);
+        return $response;
+    }
+
+    public function getSystemSmtpProvider($request) {
+        $response = new GetSystemSmtpProviderResponse();
+        $this->callApi('/api/smtp/provider/system', $request, $response);
+        return $response;
+    }
+
+    public function updateSmtpProvider($request) {
+        $response = new UpdateSmtpProviderResponse();
+        $this->callApi('/api/smtp/provider/update', $request, $response);
+        return $response;
+    }
+
+    public function updateSystemSmtpProvider($request) {
+        $response = new UpdateSystemSmtpProviderResponse();
+        $this->callApi('/api/smtp/provider/system/update', $request, $response);
+        return $response;
+    }
 }
 
 class BasicRequest {
@@ -1092,6 +1141,126 @@ class ValidateSSOTokenResponse extends BasicResponse {
     public $firstName = "";
     public $lastName = "";
     public $permissions = array();
+}
+
+class GetSmsProviderRequest extends AuthorizedRequest {
+}
+
+class GetSmsProviderResponse extends BasicResponse {
+    public $enabled = false;
+    public $twilioAccountId = "";
+    public $twilioAuthCode = "";
+    public $twilioFromPhone = "";
+    public $smsQuota = 0;
+    public $smsUsed = 0;
+    public $smsQuotaResetTime = 0;
+}
+
+class GetSmtpProviderRequest extends AuthorizedRequest {
+}
+
+class GetSmtpProviderResponse extends BasicResponse {
+    public $enabled = false;
+    public $smtpHost = "";
+    public $smtpPort = 0;
+    public $smtpUsername = "";
+    public $smtpPassword = "";
+    public $smtpFromEmail = "";
+    public $smtpFromName = "";
+    public $smtpQuota = 0;
+    public $smtpUsed = 0;
+    public $smtpQuotaResetTime = 0;
+}
+
+class GetSystemSmsProviderRequest extends AuthorizedRequest {
+    public $smsCompany = "";
+}
+
+class GetSystemSmsProviderResponse extends BasicResponse {
+    public $enabled = false;
+    public $twilioAccountId = "";
+    public $twilioAuthCode = "";
+    public $twilioFromPhone = "";
+    public $smsQuota = 0;
+    public $smsUsed = 0;
+    public $smsQuotaResetTime = 0;
+}
+
+class GetSystemSmtpProviderRequest extends AuthorizedRequest {
+    public String smtpCompany = "";
+}
+
+class GetSystemSmtpProviderResponse extends BasicResponse {
+    public $enabled = false;
+    public $smtpHost = "";
+    public $smtpPort = 0;
+    public $smtpUsername = "";
+    public $smtpPassword = "";
+    public $smtpFromEmail = "";
+    public $smtpFromName = "";
+    public $smtpQuota = 0;
+    public $smtpUsed = 0;
+    public $smtpQuotaResetTime = 0;
+}
+
+class UpdateSmsProviderRequest extends AuthorizedRequest {
+    public $enabled = false;
+    public $twilioAccountId = "";
+    public $twilioAuthCode = "";
+    public $twilioFromPhone = "";
+    public $smsQuota = 0;
+    public $smsUsed = 0;
+    public $smsQuotaResetTime = 0;
+}
+
+class UpdateSmsProviderResponse extends BasicResponse {
+}
+
+class UpdateSmtpProviderRequest extends AuthorizedRequest {
+    public $enabled = false;
+    public $smtpHost = "";
+    public $smtpPort = 0;
+    public $smtpUsername = "";
+    public $smtpPassword = "";
+    public $smtpFromEmail = "";
+    public $smtpFromName = "";
+    public $smtpQuota = 0;
+    public $smtpUsed = 0;
+    public $smtpQuotaResetTime = 0;
+}
+
+class UpdateSmtpProviderResponse extends BasicResponse {
+}
+
+class UpdateSystemSmsProviderRequest extends AuthorizedRequest {
+    public $smsCompany = "";
+    public $enabled = false;
+    public $twilioAccountId = "";
+    public $twilioAuthCode = "";
+    public $twilioFromPhone = "";
+    public $smsQuota = 0;
+    public $smsUsed = 0;
+    public $smsQuotaResetTime = 0;
+}
+
+class UpdateSystemSmsProviderResponse extends BasicResponse {
+}
+
+class UpdateSystemSmtpProviderRequest extends AuthorizedRequest {
+    public $smtpCompany = "";
+    public $enabled = false;
+    public $smtpHost = "";
+    public $smtpPort = 0;
+    public $smtpUsername = "";
+    public $smtpPassword = "";
+    public $smtpFromEmail = "";
+    public $smtpFromName = "";
+    public $smtpQuota = 0;
+    public $smtpUsed = 0;
+    public $smtpQuotaResetTime = 0;
+}
+
+class UpdateSystemSmtpProviderResponse extends BasicResponse {
 }
 
 ?>
